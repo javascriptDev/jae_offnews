@@ -1,0 +1,39 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.jex-component-viewport {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+
+    overflow: hidden;
+
+}
+
+.jex-component-panel {
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+
+.app-main {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>tree test</title>
+    <link rel="stylesheet" type="text/css" href="tree.css">
+    <link rel="stylesheet" type="text/css" href="../uiDesigner/main.css">
+
+    <script src="DOM.js"></script>
+    <script src='tree.js'></script>
+    <script src="ComponentData.js"></script>
+</head>
+<body>
+
+
+<div class="title">tree</div>
+<div class="content">
+    <aside class="type-list"></aside>
+    <div class="main">
+
+    </div>
+</div>
+<script type="text/javascript">
+    var $ = function query(argument) {
+        return document.querySelectorAll(argument)[0];
+    }
+
+
+    //获取url
+    var url = location.href;
+    var left = $('.type-list');
+    var right = $('.main');
+
+    //根据浏览器大小设置 主内容高度
+    right.style.height = window.innerHeight - 150 + 'px';
+
+    //生成树
+    var tree = new Tree({
+        leafClick: function (o) {
+            location.hash = '!type=' + o.type + '&name=' + o.name;
+        }
+    });
+    var dom = tree.render();
+    left.appendChild(dom);
+
+    //解析 hash
+    function getInfo(url) {
+        var params = url.split('#!'), type, name;
+        if (params.length > 1) {
+            info = params[1].split('&'),
+                    type = info[0].split('=')[1];
+            name = info[1].split('=')[1];
+        }
+        return {
+            type: type,
+            name: name
+        }
+    }
+
+    //根据url hash 初始化页面
+    function init() {
+        var info = getInfo(location.href);
+        var html = '';
+        if (info.type && info.name) {
+            html = data[info.type][info.name]();
+        } else {
+            html = '<div>欢迎来到文档</div>';
+        }
+        right.innerHTML = html;
+    }
+    init();
+    window.onhashchange = function (e) {
+        init();
+    }
+</script>
+</body>
+</html>
