@@ -50,8 +50,8 @@ require.define('newDesign/workSpace', ['newDesign/eventManager'], function (requ
                     e.preventDefault();
                     var alias = e.dataTransfer.getData("alias");
                     var ctl = me.createCtlByType(alias);
-
-                    me.addChild(ctl.dom);
+//                    ctl.element.style.position = 'absolute';
+                    me.addChild(ctl.element);
                     em.event.pub(em.type.showProperty, ctl);
                 } else {
                     //内部拖拽排序
@@ -186,6 +186,8 @@ require.define('newDesign/workSpace', ['newDesign/eventManager'], function (requ
             var me = this;
 
             var obj = jex.create(alias);
+
+
             me.childs.push(obj);
             obj.element.onclick = function () {
                 em.event.pub(em.type.showProperty, obj);

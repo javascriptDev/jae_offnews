@@ -7,7 +7,7 @@ jex.define('historyStore', {
     extend: 'store',
 
     config: {
-        url: 'data/sports.json',
+        url: 'demo/data/sports.json',
         method: 'get',
         dataType: 'json'
     },

@@ -10,7 +10,7 @@ http.createServer(function (req, res) {
 
     if (url == '/' || url == '/index.html') {
         res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
-        fs.readFile('newDesign/index.html', 'utf8', function (err, data) {
+        fs.readFile('demo/index.html', 'utf8', function (err, data) {
             res.write(data);
             res.end();
         });

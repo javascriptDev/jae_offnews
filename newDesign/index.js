@@ -151,7 +151,7 @@ require.define('newDesign/index',
 //      //初始化控件
         window.left = new tree({
             dragStart: function (e) {
-                e.dataTransfer.setData("type", e.target.dataset['name']);
+                e.dataTransfer.setData("alias", e.target.dataset['alias']);
                 //  e.dataTransfer.setData("id", e.target.id);
             },
             data: data,
