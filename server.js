@@ -8,9 +8,9 @@ http.createServer(function (req, res) {
 
     var url = req.url;
 
-    if (url == '/' || url == '/index.html') {
+    if (url == '/') {
         res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
-        fs.readFile('newDesign/index.html', 'utf8', function (err, data) {
+        fs.readFile('/newDesign/index.html', 'utf8', function (err, data) {
             res.write(data);
             res.end();
         });
