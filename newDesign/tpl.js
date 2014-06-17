@@ -2,7 +2,7 @@
  * Created by a2014 on 14-5-29.
  * template file
  */
-fml.define('hornbill/web/script-ss/cms/tpl', [], function (require, exports) {
+require.define('tpl', [], function (require, exports) {
 
     //模板1
     exports.l1 = "<div><%for (var i=0;i<list.length;i++) {%>" +

@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-6-10.
  */
-fml.define('hornbill/web/script-ss/cms/menu', [], function () {
+require.define('menu', [], function () {
 
     function windows(cfg) {
         this.el = this.createBase();

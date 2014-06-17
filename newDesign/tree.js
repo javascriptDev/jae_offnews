@@ -1,8 +1,8 @@
 /**
  * Created by ad on 14-5-3.
  */
-fml.define('hornbill/web/script-ss/cms/tree', ['hornbill/web/script-ss/cms/menu'], function (require) {
-    var Menu = require('hornbill/web/script-ss/cms/menu');
+require.define('tree', ['menu'], function (require) {
+    var Menu = require('menu');
 
     //constructor
     function Tree(cfg) {

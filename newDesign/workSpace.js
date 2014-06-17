@@ -5,8 +5,8 @@
  * sub
  * fire
  */
-fml.define('hornbill/web/script-ss/cms/workSpace', ['hornbill/web/script-ss/cms/eventManager'], function (require, exports) {
-    var em = require('hornbill/web/script-ss/cms/eventManager');
+require.define('workSpace', ['eventManager'], function (require, exports) {
+    var em = require('eventManager');
     var workSpace = function () {
         this.el = this.createBase();
 

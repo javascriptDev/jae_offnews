@@ -3,16 +3,16 @@
  * component base class.
  */
 
-fml.define('hornbill/web/script-ss/cms/base',
+require.define('base',
     [
-        'hornbill/web/script-ss/cms/tplHelper',
-        'hornbill/web/script-ss/cms/popup',
-        'hornbill/web/script-ss/cms/eventManager'
+        'tplHelper',
+        'popup',
+        'eventManager'
     ],
     function (require, exports) {
-        var tplHelper = require('hornbill/web/script-ss/cms/tplHelper');
-        var popup = require('hornbill/web/script-ss/cms/popup');
-        var em = require('hornbill/web/script-ss/cms/eventManager');
+        var tplHelper = require('tplHelper');
+        var popup = require('popup');
+        var em = require('eventManager');
 
         var base = function (o) {
             this.initialized = o.initialized || false;

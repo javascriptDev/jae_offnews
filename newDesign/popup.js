@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-fml.define('hornbill/web/script-ss/cms/popup', [], function () {
+require.define('popup', [], function () {
 
     var popup = function (o) {
         //target is list object

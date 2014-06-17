@@ -1,25 +1,25 @@
 /**
  * Created by a2014 on 14-5-28.
  */
-fml.define('hornbill/web/script-ss/cms/index',
+require.define('index',
     [
-        'hornbill/web/script-ss/cms/component/list',
-        'hornbill/web/script-ss/cms/component/list2',
-        'hornbill/web/script-ss/cms/component/list3',
-        'hornbill/web/script-ss/cms/component/list4',
-        'hornbill/web/script-ss/cms/tpl',
-        'hornbill/web/script-ss/cms/tree',
-        'hornbill/web/script-ss/cms/workSpace',
-        'hornbill/web/script-ss/cms/propPanel',
-        'hornbill/web/script-ss/cms/menu'
+        'cpt/list',
+        'cpt/list2',
+        'cpt/list3',
+        'cpt/list4',
+        'tpl',
+        'tree',
+        'workSpace',
+        'propPanel',
+        'menu'
     ],
     function (require) {
-        // var list = require('hornbill/web/script-ss/cms/component/list');
-        // var tpl = require('hornbill/web/script-ss/cms/tpl');
-        var tree = require('hornbill/web/script-ss/cms/tree');
-        var ws = require('hornbill/web/script-ss/cms/workSpace');
-        var propPanel = require('hornbill/web/script-ss/cms/propPanel');
-        var menu = require('hornbill/web/script-ss/cms/menu');
+        // var list = require('list');
+        // var tpl = require('tpl');
+        var tree = require('tree');
+        var ws = require('workSpace');
+        var propPanel = require('propPanel');
+        var menu = require('menu');
 
         var data = [
             {
@@ -27,22 +27,22 @@ fml.define('hornbill/web/script-ss/cms/index',
                 id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d345',
                 items: [
                     {
-                        name: 'hornbill/web/script-ss/cms/component/list',
+                        name: 'list',
                         text: 'list1',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d23f'
                     },
                     {
-                        name: 'hornbill/web/script-ss/cms/component/list2',
+                        name: 'list2',
                         text: 'list2',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d231'
                     },
                     {
-                        name: 'hornbill/web/script-ss/cms/component/list3',
+                        name: 'list3',
                         text: 'list3',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d233'
                     },
                     {
-                        name: 'hornbill/web/script-ss/cms/component/list4',
+                        name: 'list4',
                         text: 'list4',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
                     }

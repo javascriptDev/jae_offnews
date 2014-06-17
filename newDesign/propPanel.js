@@ -1,9 +1,9 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-fml.define('hornbill/web/script-ss/cms/propPanel', ['hornbill/web/script-ss/cms/eventManager'], function (require, exports) {
+require.define('propPanel', ['eventManager'], function (require, exports) {
 
-    var em = require('hornbill/web/script-ss/cms/eventManager');
+    var em = require('eventManager');
     var prop = function () {
         this.init();
     }

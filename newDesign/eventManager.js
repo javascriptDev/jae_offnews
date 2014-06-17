@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-fml.define('hornbill/web/script-ss/cms/eventManager', [], function (require, exports) {
+require.define('eventManager', [], function (require, exports) {
     var EventMgr = function () {
         var events = {};
 
