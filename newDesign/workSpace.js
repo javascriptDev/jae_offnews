@@ -5,8 +5,8 @@
  * sub
  * fire
  */
-require.define('workSpace', ['eventManager'], function (require, exports) {
-    var em = require('eventManager');
+require.define('newDesign/workSpace', ['newDesign/eventManager'], function (require, exports) {
+    var em = require('newDesign/eventManager');
     var workSpace = function () {
         this.el = this.createBase();
 
@@ -25,6 +25,9 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
             //add drop event
             this.addEvent();
             //sub save event
+            this.subEvent();
+        },
+        subEvent: function () {
             em.event.sub(em.type.saveProperty, this.saveProperty);
             em.event.sub(em.type.updateLayout, this.update);
         },
@@ -45,8 +48,8 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
                 //从tree 拖过来组件，创建对象
                 if (!me.isInnerDrag) {
                     e.preventDefault();
-                    var type = e.dataTransfer.getData("type");
-                    var ctl = me.createCtlByType(type);
+                    var alias = e.dataTransfer.getData("alias");
+                    var ctl = me.createCtlByType(alias);
 
                     me.addChild(ctl.dom);
                     em.event.pub(em.type.showProperty, ctl);
@@ -116,7 +119,7 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
             return  parseInt(element.style.webkitTransform.split(',')[1])
         },
         update: function () {
-            var dom = this.dom;
+            var dom = this.element;
             var base = dom.offsetHeight;
             var getDis = function (element) {
                 return  parseInt(element.style.webkitTransform.split(',')[1])
@@ -145,9 +148,9 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
             var els = this.childs;
             var dis = this.getDis(child);
             return els.filter(function (item) {
-                return  me.getDis(item.dom) > dis;
+                return  me.getDis(item.element) > dis;
             }).sort(function (item1, item2) {
-                return me.getDis(item1.dom) > me.getDis(item2.dom);
+                return me.getDis(item1.element) > me.getDis(item2.element);
             })[0];
 
         },
@@ -179,13 +182,12 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
             }
             this.render();
         },
-        createCtlByType: function (type, o) {
+        createCtlByType: function (alias, o) {
             var me = this;
-            var cons = require(type);
-            var obj = new cons(o || {});
-            obj.type = type;
+
+            var obj = jex.create(alias);
             me.childs.push(obj);
-            obj.dom.onclick = function () {
+            obj.element.onclick = function () {
                 em.event.pub(em.type.showProperty, obj);
             };
             //todo::
@@ -223,7 +225,7 @@ require.define('workSpace', ['eventManager'], function (require, exports) {
                     item.initialized = false;
                 }
                 var ctl = me.createCtlByType(item.type, item);
-                me.addChild(ctl.dom);
+                me.addChild(ctl.element);
             })
         }
     }

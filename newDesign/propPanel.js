@@ -1,9 +1,9 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-require.define('propPanel', ['eventManager'], function (require, exports) {
+require.define('newDesign/propPanel', ['newDesign/eventManager'], function (require, exports) {
 
-    var em = require('eventManager');
+    var em = require('newDesign/eventManager');
     var prop = function () {
         this.init();
     }

@@ -1,8 +1,8 @@
 /**
  * Created by ad on 14-5-3.
  */
-require.define('tree', ['menu'], function (require) {
-    var Menu = require('menu');
+require.define('newDesign/tree', ['newDesign/menu'], function (require) {
+    var Menu = require('newDesign/menu');
 
     //constructor
     function Tree(cfg) {
@@ -11,7 +11,6 @@ require.define('tree', ['menu'], function (require) {
         this.data = cfg.data || [];
         this.mdata = cfg.mdata || [];
         this.dragStart = cfg.dragStart;
-        this.structureIndex = 0;
         this.init();
     }
 
@@ -59,8 +58,9 @@ require.define('tree', ['menu'], function (require) {
                         })
                     } else {
                         target[i].items.push({
-                            name: data.name,
-                            text: data.text
+                            alias: data.alias,
+                            text: data.text,
+                            type: data.type
                         })
                     }
                 } else {
@@ -104,7 +104,7 @@ require.define('tree', ['menu'], function (require) {
             var me = this;
             Array.prototype.forEach.call(items, function (leaf) {
                 if (!leaf.items) {
-                    var el = me.createLeaf(leaf.name, leaf.text, type).getDom();
+                    var el = me.createLeaf(leaf.alias, leaf.text, type).getDom();
                     parent.appendChild(el);
                 } else {
                     var node = me.createNode(leaf.node, leaf.id),
@@ -115,13 +115,13 @@ require.define('tree', ['menu'], function (require) {
             });
         },
         //create leaf node
-        createLeaf: function (name, text, type) {
+        createLeaf: function (alias, text, type) {
             var a = document.createElement('div');
             a.className = 'leaf-dom';
             a.innerHTML = text;
-            a.id = name + '-' + Math.floor(Math.random() * 100000);
+            a.id = alias + '-' + Math.floor(Math.random() * 100000);
             a.setAttribute('data-type', type);
-            a.setAttribute('data-name', name);
+            a.setAttribute('data-alias', alias);
 
             a.setAttribute('draggable', true);
 
@@ -193,7 +193,7 @@ require.define('tree', ['menu'], function (require) {
                         data.id = id;
                         dom = me.createNode(text, id).getDom();
                     } else {
-                        data.name = name;
+                        data.alias = name;
                         data.text = text;
                         data.type = 'file';
                         dom = me.createLeaf(name, text, type).getDom();

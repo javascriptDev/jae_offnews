@@ -2,11 +2,11 @@
  * Created by a2014 on 14-5-29.
  * a list component
  */
-require.define('cpt/list',
+require.define('newDesign/cpt/list',
     [
-        'base',
-        'util',
-        'tpl'
+        'newDesign/base',
+        'newDesign/util',
+        'newDesign/tpl'
     ], function (require) {
         var util = require('util');
         var base = require('base');

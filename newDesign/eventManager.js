@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-require.define('eventManager', [], function (require, exports) {
+require.define('newDesign/eventManager', [], function (require, exports) {
     var EventMgr = function () {
         var events = {};
 

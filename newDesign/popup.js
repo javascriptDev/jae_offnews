@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-5-29.
  */
-require.define('popup', [], function () {
+require.define('newDesign/popup', [], function () {
 
     var popup = function (o) {
         //target is list object

@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-5-28.
  */
-require.define('util', [], function (require, exports) {
+require.define('newDesign/util', [], function (require, exports) {
 
     exports.inherit = function (subclass, superclass) {
         var F = function () {

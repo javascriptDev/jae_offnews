@@ -1,7 +1,7 @@
 /**
  * Created by a2014 on 14-6-10.
  */
-require.define('menu', [], function () {
+require.define('newDesign/menu', [], function () {
 
     function windows(cfg) {
         this.el = this.createBase();

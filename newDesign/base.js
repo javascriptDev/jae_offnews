@@ -3,11 +3,11 @@
  * component base class.
  */
 
-require.define('base',
+require.define('newDesign/base',
     [
-        'tplHelper',
-        'popup',
-        'eventManager'
+        'newDesign/tplHelper',
+        'newDesign/popup',
+        'newDesign/eventManager'
     ],
     function (require, exports) {
         var tplHelper = require('tplHelper');

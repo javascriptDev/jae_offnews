@@ -1,17 +1,17 @@
 /**
  * Created by a2014 on 14-5-28.
  */
-require.define('index',
+require.define('newDesign/index',
     [
-        'cpt/list',
-        'cpt/list2',
-        'cpt/list3',
-        'cpt/list4',
-        'tpl',
-        'tree',
-        'workSpace',
-        'propPanel',
-        'menu'
+        'newDesign/cpt/list',
+        'newDesign/cpt/list2',
+        'newDesign/cpt/list3',
+        'newDesign/cpt/list4',
+        'newDesign/tpl',
+        'newDesign/tree',
+        'newDesign/workSpace',
+        'newDesign/propPanel',
+        'newDesign/menu'
     ],
     function (require) {
         // var list = require('list');
@@ -27,28 +27,117 @@ require.define('index',
                 id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d345',
                 items: [
                     {
-                        name: 'list',
-                        text: 'list1',
+                        alias: 'panel',
+                        text: 'panel',
+                        typ: 'view',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d23f'
                     },
                     {
-                        name: 'list2',
-                        text: 'list2',
+                        alias: 'titlebar',
+                        text: 'title bar',
+                        type: 'view',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d231'
                     },
                     {
-                        name: 'list3',
-                        text: 'list3',
+                        alias: 'list',
+                        text: 'list',
+                        type: 'view',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d233'
                     },
                     {
-                        name: 'list4',
-                        text: 'list4',
+                        alias: 'tab',
+                        text: 'tab',
+                        type: 'view',
+                        id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                    },
+                    {
+                        alias: 'button',
+                        text: 'button',
+                        type: 'view',
+                        id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                    },
+                    {
+                        node: 'form',
+                        text: '表单',
+                        type: 'view',
+                        id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222',
+                        items: [
+                            {
+                                alias: 'fieldset',
+                                text: 'fieldset',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            },
+                            {
+                                alias: 'form',
+                                text: 'form',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            },
+                            {
+                                alias: 'text',
+                                text: 'text',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            },
+                            {
+                                alias: 'radio',
+                                text: 'radio',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            },
+                            {
+                                alias: 'select',
+                                text: 'select',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            },
+                            {
+                                alias: 'toggle',
+                                text: 'toggle',
+                                type: 'view',
+                                id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                node: 'controller',
+                id: 'asdasD',
+                items: [
+                    {
+                        alias: 'controller',
+                        text: 'controller',
+                        type: 'ctl',
+                        id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                    }
+                ]
+            },
+            {
+                node: 'store',
+                id: '123asd',
+                items: [
+                    {
+                        alias: 'store',
+                        text: 'store',
+                        type: 'store',
+                        id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
+                    }
+                ]
+            },
+            {
+                node: 'model',
+                id: '12easda',
+                items: [
+                    {
+                        alias: 'model',
+                        text: 'Model',
+                        type: 'model',
                         id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d222'
                     }
                 ]
             }
-
         ]
 
         var menuData = [
