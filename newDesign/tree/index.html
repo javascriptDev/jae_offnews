@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="tree.css" rel="stylesheet">
+    <script src="windows.js"></script>
+    <script src="menu.js"></script>
+    <script src="tree.js"></script>
+</head>
+<body>
+<div class="project"></div>
+
+
+<script>
+    var data = [
+        {
+            id: '9f2b5353-c3d4-168f-6bc9-9c734aa0d234',
+            node: 'root',
+            items: [
+                {
+                    node: '1',
+                    id: 'asdasdad12',
+                    items: [
+                        {
+                            text: '11',
+                            name: '11'
+                        },
+                        {
+                            text: '12',
+                            name: '12'
+                        }
+                    ]
+                },
+                {
+                    node: '2',
+                    id: 'ad23rsdgwe',
+                    items: [
+                        {
+                            text: '21',
+                            name: '21'
+                        },
+                        {
+                            text: '22',
+                            name: '22'
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+    var mdata = [
+        {type: 'folder'},
+        {type: 'js'},
+        {type: 'css'},
+        {type: 'html'},
+        {type: 'json'}
+    ];
+
+
+    var t = new Tree({
+        parent: '.project ',
+        //tree 数据源
+        data: data,
+        //tree node右键菜单数据源
+        mdata: mdata
+    });
+
+</script>
+</body>
+</html>

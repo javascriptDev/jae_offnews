@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../fml.js"></script>
+    <script src="index.js"></script>
+    <link href="tree.css" rel="stylesheet">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .title {
+            height: 100px;
+            width: 100%;
+
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .content {
+            width: 100%;
+            margin: 0 auto;
+
+            min-height: 400px;
+        }
+
+        .type-list {
+            float: left;
+            width: 16%;
+            height: auto;
+
+        }
+
+        img {
+
+            display: block;
+        }
+
+        .main {
+            float: left;
+            width: 68%;
+            height: 600px;
+            overflow-x: auto;
+            box-shadow: -1px -1px 0 #b3b3b3, 1px -1px 0 #b3b3b3, -1px 1px 0 #b3b3b3, 1px 1px 0 #b3b3b3;
+            border-radius: 3px;
+            border: 1px solid #fff;
+            margin-left: 5px;
+        }
+
+        .property {
+            float: left;
+            width: 14%;
+            height: 600px;
+            border: 1px solid green;
+        }
+
+        .win-list {
+            position: absolute;
+            -webkit-transition: linear .2s;
+            -moz-transition: linear .2s;
+            transition: linear .2s;
+
+            width: 68%;
+        }
+
+        .win-content {
+            padding-bottom: 40px;
+            height: 300px;
+            max-height: 300px;;
+            overflow-y: scroll;
+            overflow-x: scroll;
+        }
+
+        td {
+            max-width: 100px;
+            word-break: break-all;
+            word-wrap: break-word;
+            max-height: 30px;
+            overflow: hidden;
+            border: 1px solid gainsboro;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>添加folder</li>
+        </ul>
+    </nav>
+</header>
+
+<div class="content">
+    <aside class="project">网站文件</aside>
+    <aside class="type-list"></aside>
+    <div class="main">
+    </div>
+    <div class="property"></div>
+</div>
+
+</body>
+</html>

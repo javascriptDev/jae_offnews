@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #aa {
+            border: 1px solid red;
+            height: 400px;;
+        }
+
+        li {
+            position: absolute;
+            border: 1px solid red;
+            -webkit-transition-duration: .2s;
+        }
+
+        li:nth-child(n) {
+
+            height: 100px;
+
+            width: 100px;
+        }
+
+        li:nth-child(2n) {
+            height: 200px;
+            width: 100px;
+        }
+
+        li:hover {
+            opacity: 0.8;
+        }
+
+        li:nth-child(even) {
+            background: forestgreen;
+        }
+
+        li:nth-child(odd) {
+            background: saddlebrown;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="addison-ul">
+    <li class="a" id="a0" draggable="true" style="-webkit-transform:translate3d(0,1px,0)">0</li>
+    <li class="a" id="a1" draggable="true" style="-webkit-transform:translate3d(0,102px,0)">1</li>
+    <li class="a" id="a2" draggable="true" style="-webkit-transform:translate3d(0,304px,0)">2</li>
+    <li class="a" id="a3" draggable="true" style="-webkit-transform:translate3d(0,406px,0)">3</li>
+</ul>
+
+<script>
+
+    var ul = document.querySelector('ul');
+    var el = ul.querySelectorAll('li');
+    function getDis(element) {
+        return  parseInt(element.style.webkitTransform.split(',')[1])
+    }
+
+    function animate(el, distance, fn) {
+
+        el.style.webkitTransform = 'translate3d(0,' + distance + 'px,0) ';
+
+    }
+    var o = {};
+    function isUp(x1, x2) {
+        if (x2 > x1) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+    ul.ondragstart = function (e) {
+        o.el = e.target;
+        o.p = getDis(e.target);
+        o.height = e.target.offsetHeight;
+        o.y = e.y;
+
+
+    }
+    ul.ondragenter = function (e) {
+        var time = 200;
+
+        e.stopPropagation();
+        if (e.target != o.el) {
+            console.log(e);
+            var a = o.p;
+
+            if (isUp(o.y, e.y)) {
+                console.log('up');
+                o.p = getDis(e.target);
+                animate(e.target, a + (o.height - e.target.offsetHeight));
+                setTimeout(function () {
+                    animate(o.el, o.p);
+                }, time)
+
+            } else {
+                console.log('down');
+                o.p = getDis(e.target) + (e.target.offsetHeight - o.height);
+                animate(e.target, a);
+                setTimeout(function () {
+                    animate(o.el, o.p)
+                }, time)
+            }
+        }
+    }
+
+    window.onload = function () {
+        Array.prototype.forEach.call(dcument.querySelector('.addison-ul li'), function (item) {
+            item.setAttribute('draggable', 'true');
+        })
+    }
+</script>
+
+
+</body>
+</html>

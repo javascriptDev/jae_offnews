@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #aa {
+            border: 1px solid red;
+            height: 400px;;
+        }
+
+        ul {
+            border: 2px solid red;
+            height: 500px;
+            width: 600px;
+        }
+
+        li {
+            position: absolute;
+            -webkit-transition-duration: .5s;
+            height: 100px;
+            border: 1px solid red;
+            width: 100px;
+        }
+
+        li:hover {
+            opacity: 0.8;
+        }
+
+        li:nth-child(even) {
+            background: forestgreen;
+        }
+
+        li:nth-child(odd) {
+            background: saddlebrown;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li class="a" id="a0" draggable="true" style="-webkit-transform:translate3d(0,0,0)">11</li>
+    <li class="a" id="a1" draggable="true" style="-webkit-transform:translate3d(0,102px,0)">22</li>
+    <li class="a" id="a2" draggable="true" style="-webkit-transform:translate3d(0,204px,0)">33</li>
+    <li class="a" id="a3" draggable="true" style="-webkit-transform:translate3d(0,306px,0)">44</li>
+</ul>
+
+<script>
+
+    var ul = document.querySelector('ul');
+    var el = ul.querySelectorAll('li');
+    var o = {
+        dtop: 0,
+        index: 0,
+        el: null,
+        a: 0
+    }
+    function animate(el, distance) {
+        if (o.a < 2) {
+            o.a += 1;
+            console.dir(el + distance);
+            el.style.webkitTransform = 'translate(0,' + distance + 'px) translateZ(0)';
+        }
+    }
+
+
+    ul.ondragstart = function (e) {
+        var cls = e.target.className;
+        o.a = 0;
+        if (cls) {
+            if (cls == 'a') {
+                var element = e.srcElement;
+                height = element.offsetHeight;
+                o.el = element;
+                e.dataTransfer.setData("id", e.srcElement.id);
+                o.top = e.layerY;
+                o.index = parseInt(element.style.webkitTransform.split(',')[1]) / height;
+                console.log(o.index);
+            }
+        }
+    }
+
+    ul.ondrop = function (e) {
+        debugger;
+        var s = document.querySelector('#' + e.dataTransfer.getData('id'));
+        o.dtop = 0;
+    }
+
+    ul.ondragover = function (e) {
+        e.stopPropagation();
+        var height = e.srcElement.offsetHeight;
+        var step = (e.layerY - o.top) / height;
+        if (/^[0-9]*[1-9][0-9]*$/.test(Math.abs(step))) {
+            var current = o.index;
+            o.index += step;
+//            //移动当前
+            animate(o.el, o.index * height);
+//            //移动受影响元素
+            animate(e.srcElement, current * height);
+            return;
+        }
+    }
+</script>
+
+</body>
+</html>
